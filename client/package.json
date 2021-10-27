@@ -1,0 +1,8 @@
+{
+  "name": "@life/client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com:ironstein0/life",
+  "author": "ironstein0 <riyansh.karani.011235@gmail.com>",
+  "license": "MIT"
+}
