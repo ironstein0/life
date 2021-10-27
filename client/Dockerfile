@@ -12,8 +12,6 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-# Bundle app source
-COPY . .
+EXPOSE 1234
 
-EXPOSE 8080
-CMD [ "yarn", "start" ]1
+CMD [ "yarn", "start" ]

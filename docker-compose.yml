@@ -3,9 +3,11 @@ services:
   client:
     build: ./client
     ports:
-      - "8080:8080"
+      - "1234:1234"
     depends_on:
       - server
+    volumes:
+      - ./client:/usr/src/app
   server:
     build: ./server
     ports: 
