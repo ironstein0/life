@@ -1,0 +1,22 @@
+{
+  "name": "@life/model",
+  "version": "0.0.1",
+  "devDependencies": {
+    "prisma": "^5.2.0",
+    "zenstack": "1.0.0-beta.20"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "@zenstackhq/runtime": "1.0.0-beta.20",
+    "typegraphql-prisma": "^0.27.0"
+  },
+  "scripts": {
+    "zenstack:generate": "npx zenstack generate",
+    "prisma:generate": "npx prisma generate",
+    "generate:all": "yarn zenstack:generate && yarn prisma:generate",
+    "prisma:migrate:dev": "yarn zenstack:generate && npx prisma migrate dev",
+    "prisma:migrate:prod": "yarn zenstack:generate && npx prisma migrate deploy",
+    "prisma:migrate:reset": "yarn zenstack:generate && npx prisma migrate reset",
+    "prisma:studio": "npx prisma studio"
+  }
+}

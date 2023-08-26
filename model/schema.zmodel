@@ -1,0 +1,30 @@
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+    output = "client"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output = "typegraphql"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  philosophy Philosophy?
+}
+
+model Philosophy {
+  id Int @id @default(autoincrement())
+  heading String
+  author User? @relation(fields: [authorId], references: [id])
+  authorId Int? @unique
+  children Philosophy[] @relation("PhilosophyParents")
+  parents Philosophy[] @relation("PhilosophyParents")
+  credits Int
+}

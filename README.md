@@ -1,8 +1,21 @@
 # life
 
-A system for composing and executing my ideal life. Meant only for myself, not for anyone else (to be kept in mind while designing features, so as not to unnecessarily generalize the problems at hand).
+I'll be entering my 30s soon. In this seemingly endless and growing list of priorities and tasks, I would like to find balance so I can be happy and stress free.
+
+This project is system for composing, orchestrating and executing my ideal life. Meant only for myself, not for anyone else (to be kept in mind while designing features, so as not to unnecessarily generalize the problems at hand).
+
+# Timeline
+
+| Date       | Goal |
+| ---------- | ---- |
+| 01/01/2024 | start using this system seriously |
+
 
 # stack
+
+## general
+1. `yarn workspaces` to manage the entire project
+2. [nvm](https://github.com/nvm-sh/nvm) for managing node versions
 
 ## backend
 
