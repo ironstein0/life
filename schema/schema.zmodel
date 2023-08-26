@@ -23,6 +23,7 @@ model User {
 model Philosophy {
   id Int @id @default(autoincrement())
   heading String
+  description String @default("no description")
   author User? @relation(fields: [authorId], references: [id])
   authorId Int? @unique
   children Philosophy[] @relation("PhilosophyParents")

@@ -1,0 +1,6 @@
+{
+    "watch": [
+        "../schema/prisma/typegraphql/index.d.ts",
+        "../schema/prisma/client/index.d.ts"
+    ]
+}

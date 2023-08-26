@@ -1,16 +1,18 @@
 include .env
 export
 
-prisma-generate:
+schema-generate:
 	yarn workspace @life/schema generate:all
 
-prisma-migrate-dev:
+schema-migrate: schema-migrate-dev schema-migrate-prod
+
+schema-migrate-dev:  schema-generate
 	yarn workspace @life/schema prisma:migrate:dev
 
-prisma-migrate-dev-reset:
+schema-migrate-dev-reset: schema-generate
 	yarn workspace @life/schema prisma:migrate:reset
 
-prisma-migrate-prod:
+schema-migrate-prod: schema-generate
 	yarn workspace @life/schema prisma:migrate:prod
 
 prisma-studio:
@@ -25,5 +27,8 @@ pgsql-dev-start:
 pgsql-dev-stop:
 	docker stop pgsql-dev
 
-server-dev: prisma-generate
+server-dev:
 	yarn workspace @life/server start:dev
+
+client-dev:
+	yarn workspace @life/client start
