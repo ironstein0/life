@@ -1,0 +1,27 @@
+{
+  "name": "@life/client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.5.6",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@urql/devtools": "^2.0.3",
+    "@urql/next": "^1.0.0",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "next": "13.4.19",
+    "next-urql": "^5.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-is": "^18.2.0",
+    "typescript": "5.2.2",
+    "urql": "^4.0.5"
+  }
+}

@@ -31,4 +31,4 @@ server-dev:
 	yarn workspace @life/server start:dev
 
 client-dev:
-	yarn workspace @life/client start
+	yarn workspace @life/client dev
