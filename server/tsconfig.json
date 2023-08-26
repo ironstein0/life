@@ -50,7 +50,7 @@
   // Yarn workspaces.
   "references": [
     {
-      "path": "../model"
+      "path": "../schema"
     }
   ]
 }

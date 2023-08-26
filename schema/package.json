@@ -1,5 +1,5 @@
 {
-  "name": "@life/model",
+  "name": "@life/schema",
   "version": "0.0.1",
   "devDependencies": {
     "prisma": "^5.2.0",

@@ -1,8 +1,8 @@
 // The reflect-metadata shim is required to make the type reflection work.
 import "reflect-metadata";
 
-import { resolvers } from "@life/model/prisma/typegraphql";
-import { PrismaClient } from "@life/model/prisma/client";
+import { resolvers } from "@life/schema/prisma/typegraphql";
+import { PrismaClient } from "@life/schema/prisma/client";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";

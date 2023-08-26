@@ -2,19 +2,19 @@ include .env
 export
 
 prisma-generate:
-	yarn workspace @life/model generate:all
+	yarn workspace @life/schema generate:all
 
 prisma-migrate-dev:
-	yarn workspace @life/model prisma:migrate:dev
+	yarn workspace @life/schema prisma:migrate:dev
 
 prisma-migrate-dev-reset:
-	yarn workspace @life/model prisma:migrate:reset
+	yarn workspace @life/schema prisma:migrate:reset
 
 prisma-migrate-prod:
-	yarn workspace @life/model prisma:migrate:prod
+	yarn workspace @life/schema prisma:migrate:prod
 
 prisma-studio:
-	yarn workspace @life/model prisma:studio
+	yarn workspace @life/schema prisma:studio
 
 pgsql-dev-create:
 	docker run --name pgsql-dev -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} -e POSTGRES_USER=${POSTGRES_USER} -p ${POSTGRES_PORT}:${POSTGRES_PORT} -d postgres
