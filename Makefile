@@ -7,11 +7,11 @@ prisma-generate:
 prisma-migrate-dev:
 	yarn workspace @life/model prisma:migrate:dev
 
+prisma-migrate-dev-reset:
+	yarn workspace @life/model prisma:migrate:reset
+
 prisma-migrate-prod:
 	yarn workspace @life/model prisma:migrate:prod
-
-prisma-migrate-reset:
-	yarn workspace @life/model prisma:migrate:reset
 
 prisma-studio:
 	yarn workspace @life/model prisma:studio
@@ -24,3 +24,6 @@ pgsql-dev-start:
 
 pgsql-dev-stop:
 	docker stop pgsql-dev
+
+server-dev: prisma-generate
+	yarn workspace @life/server start:dev
