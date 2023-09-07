@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.exclude": {
+		"**/node_modules": true,
+    "schema/extensions/*.d.ts": true,
+    "schema/extensions/*.js": true
+	}
+}

@@ -1,14 +1,14 @@
 // The reflect-metadata shim is required to make the type reflection work.
 import "reflect-metadata";
 
-import { resolvers } from "@life/schema/prisma/typegraphql";
-import { PrismaClient } from "@life/schema/prisma/client";
-import { buildSchema } from "type-graphql";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
+import { PhilosophyValidation } from "@life/schema/extensions/philosophy_validation";
+import { PrismaClient } from "@life/schema/prisma/client";
+import { resolvers } from "@life/schema/prisma/typegraphql";
+import { buildSchema } from "type-graphql";
 
-// const PORT = process.env.PORT || 4000;
-const prisma = new PrismaClient();
+const prisma = new PrismaClient().$extends(PhilosophyValidation);
 
 async function bootstrap() {
   // Build GraphQL schema.

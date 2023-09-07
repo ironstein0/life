@@ -4,8 +4,8 @@ datasource db {
 }
 
 generator client {
-    provider = "prisma-client-js"
-    output = "client"
+  provider = "prisma-client-js"
+  output = "client"
 }
 
 generator typegraphql {
@@ -17,6 +17,7 @@ generator typegraphql {
 model User {
   id Int @id @default(autoincrement())
   username String @unique
+  // Every user has one root philosophy.
   philosophy Philosophy?
 }
 
@@ -26,7 +27,9 @@ model Philosophy {
   description String @default("no description")
   author User? @relation(fields: [authorId], references: [id])
   authorId Int? @unique
+  // Many to many relationship between philosophies.
   children Philosophy[] @relation("PhilosophyParents")
   parents Philosophy[] @relation("PhilosophyParents")
+  // TODO(https://github.com/ironstein0/life/issues/1#issue-1885413210): validate credits.
   credits Int
 }
