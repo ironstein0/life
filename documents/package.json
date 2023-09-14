@@ -1,0 +1,19 @@
+{
+  "name": "@life/documents",
+  "version": "1.0.0",
+  "main": "build/index",
+  "description": "documents",
+  "scripts": {
+    "mddb": "npx mddb .store",
+    "prebuild": "yarn mddb"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.6.0",
+    "mddb": "^0.2.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0",
+    "oracledb": "^6.1.0",
+    "pg": "^8.11.3",
+    "tedious": "^16.4.0"
+  }
+}

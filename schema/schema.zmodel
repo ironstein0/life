@@ -17,19 +17,85 @@ generator typegraphql {
 model User {
   id Int @id @default(autoincrement())
   username String @unique
+
   // Every user has one root philosophy.
-  philosophy Philosophy?
+  rootPhilosophy UserRootPhilosophy?
+
+  // A user can own many philosophies.
+  philosophies Philosophy[]
+
+  // A user can own many documents.
+  documents Document[]
 }
 
 model Philosophy {
   id Int @id @default(autoincrement())
   heading String
   description String @default("no description")
+
+  // Owner.
   author User? @relation(fields: [authorId], references: [id])
-  authorId Int? @unique
+  authorId Int
+
   // Many to many relationship between philosophies.
   children Philosophy[] @relation("PhilosophyParents")
   parents Philosophy[] @relation("PhilosophyParents")
+
   // TODO(https://github.com/ironstein0/life/issues/1#issue-1885413210): validate credits.
   credits Int
+
+  // Field corresponding to UserRootPhilosophy.
+  // [] because the same philosophy could be a root philosophy for many users.
+  rootUsers UserRootPhilosophy[]
+
+  documents DocumentsOnPhilosophies[]
+}
+
+// Root philosophies for each user.
+model UserRootPhilosophy {
+  id Int @id @default(autoincrement())
+
+  user User @relation(fields: [userId], references: [id])
+  // @unique because a user can have only one philosophy.
+  userId Int @unique
+
+  philosophy Philosophy @relation(fields: [philosophyId], references: [id])
+  philosophyId Int 
+
+  // To make graphql happy.
+  // https://github.com/MichalLytek/typegraphql-prisma/issues/19#issuecomment-907747110.
+  createdAt DateTime @default(now())
+}
+
+model Document {
+  id Int @id @default(autoincrement())
+
+  path String @unique
+
+  // Read from mddb.
+  /// @TypeGraphQL.omit(output: true)
+  content String
+
+  // A document can belong to one user.
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+
+  // A document can be referenced by many philosophies.
+  philosophies DocumentsOnPhilosophies[]
+}
+
+// A philosophy can reference many documents, and a document can be referenced
+// by many philosophies.
+model DocumentsOnPhilosophies {
+  id Int @unique @default(autoincrement())
+
+  document Document @relation(fields: [documentId], references: [id])
+  documentId Int
+
+  philosophy Philosophy @relation(fields: [philosophyId], references: [id])
+  philosophyId Int
+
+  // To make graphql happy.
+  // https://github.com/MichalLytek/typegraphql-prisma/issues/19#issuecomment-907747110.
+  createdAt DateTime @default(now())
 }

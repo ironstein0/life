@@ -2,7 +2,7 @@
   "name": "@life/server",
   "version": "1.0.0",
   "description": "server",
-  "main": "build/main/index.js",
+  "main": "build/index",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/YOUR_GITHUB_USER_NAME/server",
@@ -36,7 +36,7 @@
     "version": "standard-version",
     "reset-hard": "git clean -dfx && git reset --hard && yarn",
     "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish",
-    "start:dev": "tsc && concurrently \"npx tsc -w\" \"npx nodemon build/main/index.js\""
+    "start:dev": "tsc && concurrently \"npx tsc -w\" \"npx nodemon build/index.js\""
   },
   "engines": {
     "node": ">=10"
@@ -44,6 +44,7 @@
   "dependencies": {
     "@apollo/server": "^4.9.2",
     "@bitauth/libauth": "^1.17.1",
+    "@life/documents": "1.0.0",
     "@types/graphql-fields": "^1.3.5",
     "@types/node": "^20.5.6",
     "class-validator": "^0.14.0",

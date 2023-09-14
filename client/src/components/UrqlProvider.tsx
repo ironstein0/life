@@ -1,3 +1,4 @@
+import React from 'react';
 import { UrqlProvider, ssrExchange, cacheExchange, fetchExchange, createClient } from '@urql/next';
 import { devtoolsExchange } from '@urql/devtools';
 

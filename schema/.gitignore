@@ -1,3 +1,4 @@
 prisma/*
 extensions/*.d.ts
 extensions/*.js
+build/*
